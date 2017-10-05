@@ -1,0 +1,2 @@
+# OpossumGit.github.io
+static
