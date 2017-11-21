@@ -63,7 +63,12 @@ Highcharts.setOptions({
         title: {
             text: 'GUK (mmol/l)'
         },
-        min: 0
+        min: 0,
+	plotBands: [{
+		color: 'green', // Color value
+		from: 3.9, // start of the plot band
+		to: 8.5 // End of the plot band
+	}]    
     },
     tooltip: {
         headerFormat: '<b>Dora</b><br>',
