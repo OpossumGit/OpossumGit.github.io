@@ -1,118 +1,117 @@
 <!doctype html>
 
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <title>Dorinih 100 GUKova</title>
-  <meta name="description" content="Dora">
-  <meta name="author" content="Tvrtko">
+    <title>Dorinih 100 GUKova</title>
+    <meta name="description" content="Dora">
+    <meta name="author" content="Tvrtko">
 
 
-  <!--[if lt IE 9]>
+    <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   <![endif]-->
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/modules/series-label.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.13/moment-timezone-with-data-2012-2022.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.13/moment-timezone-with-data-2012-2022.min.js"></script>
 
-
-<script>
-$(document).ready(function(){
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/locale/hr.js"></script>
 
 
- $.getJSON("https://dorans.herokuapp.com/api/v1/entries/sgv.json?count=100", function(result){
+    <script>
+        $(document).ready(function() {
+            $.getJSON("https://dorans.herokuapp.com/api/v1/entries/sgv.json?count=100", function(result) {
 
-var mySeries = [];
-for (var i = 0; i < result.length; i++) {
-  mySeries.push([result[i].date, result[i].sgv/18.02]);
-}
+                var title = moment(result[0].date).fromNow() + ': ' + (result[0].sgv / 18.02).toFixed(1);
 
-Highcharts.setOptions({
-    global: {
-        timezone: 'Europe/Zagreb'
-    }
-});
 
-  Highcharts.chart('container', {
-    chart: {
-        type: 'spline'
-    },
-    title: {
-        text: 'Zadnjih 100 Dorinih šećera'
-    },
-    subtitle: {
-        text: 'mmol/l'
-    },
-    xAxis: {
-        type: 'datetime',
-        dateTimeLabelFormats: {
-            month: '%e. %b',
-            year: '%b'
-        },
-        title: {
-            text: 'Vrijeme'
-        }
-    },
-    yAxis: {
-        title: {
-            text: 'GUK (mmol/l)'
-        },
-        min: 0,
-	plotBands: [{
-		color: 'lime', // Color value
-		from: 3.9, // start of the plot band
-		to: 8.5 // End of the plot band
-	}]    
-    },
-    tooltip: {
-        headerFormat: '<b>Dora</b><br>',
-        pointFormat: '{point.x:%H:%M}: {point.y:.1f} mmol/l'
-    },
+                var mySeries = [];
+                for (var i = 0; i < result.length; i++) {
+                    mySeries.push([result[i].date, result[i].sgv / 18.02]);
+                }
+                Highcharts.setOptions({
+                    global: {
+                        timezone: 'Europe/Zagreb'
+                    }
+                });
+                Highcharts.chart('container', {
+                    chart: {
+                        type: 'spline'
+                    },
+                    title: {
+                        text: title
+                    },
+                    subtitle: {
+                        text: 'mmol/l'
+                    },
+                    xAxis: {
+                        type: 'datetime',
+                        dateTimeLabelFormats: {
+                            month: '%e. %b',
+                            year: '%b'
+                        },
+                        title: {
+                            text: 'Vrijeme'
+                        }
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'GUK (mmol/l)'
+                        },
+                        min: 0,
+                        plotBands: [{
+                            color: 'azure', // Color value
+                            from: 3.9, // start of the plot band
+                            to: 8.5 // End of the plot band
+                        }]
+                    },
+                    tooltip: {
+                        headerFormat: '<b>Dora</b><br>',
+                        pointFormat: '{point.x:%H:%M}: {point.y:.1f} mmol/l'
+                    },
+                    plotOptions: {
+                        spline: {
+                            marker: {
+                                enabled: true
+                            }
+                        }
+                    },
+                    series: [{
+                        name: 'GUK',
+                        data: mySeries,
+                        zones: [{
+                            value: 3.2, // Values up to 3,2 (not including) ...
+                            color: 'red' // ... have the color red
+                        }, {
+                            value: 3.9, // Values up to 3,9 (not including) ...
+                            color: 'orange' // ... have the color orange
+                        }, {
+                            value: 8.5, // Values up to 8,5 (not including) ...
+                            color: 'green' // ... have the color green
+                        }, {
+                            value: 10, // Values up to 10 (not including) ...
+                            color: 'orange' // ... have the color orange
+                        }, {
+                            color: 'red' // Values from 10 (including) and up have the color red
+                        }]
+                    }]
+                });
+            });
 
-    plotOptions: {
-        spline: {
-            marker: {
-                enabled: true
-            }
-        }
-    },
-
-    series: [{
-        name: 'GUK',
-        data: mySeries,
-        zones: [{
-            value: 3.2, // Values up to 3,2 (not including) ...
-            color: 'red' // ... have the color red
-        },{
-            value: 3.9, // Values up to 3,9 (not including) ...
-            color: 'orange' // ... have the color orange
-        }, {
-	    value: 8.5, // Values up to 8,5 (not including) ...
-            color: 'green' // ... have the color green
-        },{
-            value: 10, // Values up to 10 (not including) ...
-            color: 'orange' // ... have the color orange
-        },{
-            color: 'red' // Values from 10 (including) and up have the color red
-        }]
-   }]
-});
-
-});
- 
-
-});
-</script>
+        });
+    </script>
 </head>
 
 <body>
 
-<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <div id="container" style="min-width: 310px; height: 90vh; margin: 0 auto"></div>
 </body>
+
 </html>
