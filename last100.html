@@ -27,7 +27,10 @@
 
     <script>
         $(document).ready(function() {
-            $.getJSON("https://dorans.herokuapp.com/api/v1/entries/sgv.json?count=100", function(result) {
+            var searchParams = window.location.search;
+            if (!searchParams) searchParams = '?count=100';
+            
+            $.getJSON("https://dorans.herokuapp.com/api/v1/entries/sgv.json" + searchParams, function(result) {
 
                 var title = moment(result[0].date).fromNow() + ': ' + (result[0].sgv / 18.02).toFixed(1);
 
@@ -103,7 +106,7 @@
                             value: 8.5, // Values up to 8,5 (not including) ...
                             color: 'green' // ... have the color green
                         }, {
-                            value: 10, // Values up to 10 (not including) ...
+                            value: 12, // Values up to 10 (not including) ...
                             color: 'orange' // ... have the color orange
                         }, {
                             color: 'red' // Values from 10 (including) and up have the color red
