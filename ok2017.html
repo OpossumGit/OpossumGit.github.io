@@ -51,18 +51,21 @@ iframe {
     var sites = [
      { name: 'Davor',   url: 'https://obiteljskikamp.herokuapp.com' },
      { name: 'Dora',   url: 'https://dorans.herokuapp.com' },
+     { name: 'Clea',   url: 'https://babaroga.herokuapp.com' },
+      { name: 'Davor',   url: 'https://obiteljskikamp.herokuapp.com' },
+     { name: 'Dora',   url: 'https://dorans.herokuapp.com' },
      { name: 'Clea',   url: 'https://babaroga.herokuapp.com' }
     ];
     var columns = 3;   
     var $placeholder = $('.container-fluid');
-    var html = "<table>";
+    var html = "<table width="100%">";
     for (var i = 0; i < sites.length ; i++) {
       if (i % columns == 0) 
         html += '<tr>';
       html += '<td>';
       html += '<div>';
             html += '<button type="button" onclick="window.open(\'' + sites[i].url + '\')" class="btn btn-primary">' + sites[i].name + '</button>';
-            html += '<iframe src="' + sites[i].url + '" width="100%" height="700px" scrolling="no"></iframe>';
+            html += '<iframe src="' + sites[i].url + '" width="100%" height="500px" scrolling="no"></iframe>';
           html += '</div>';
           html += '</td>';
       if ((i+1) % columns == 0 || i == sites.length - 1) 
