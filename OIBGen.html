@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Generiranje OIB zaštitne znamenke</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+ 	<link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" charset="utf-8" />
+</head>
+<body>
+
+
+
+<div id="app">
+	<v-app>
+ 		<v-content>
+			<v-form v-on:submit.prevent="calculate">
+				<v-container>
+					<v-layout>
+						<v-flex>
+							<v-toolbar>
+								<v-toolbar-title>Generator važećih OIB-a na temelju deseteroznamenkastih brojeva</v-toolbar-title>
+								<v-spacer></v-spacer>
+								
+								<v-tooltip bottom>
+							      <template v-slot:activator="{ on }">
+								  	<v-btn icon v-on:click="copytoclipboard" v-on="on">
+      									<v-icon color="primary">list</v-icon>
+							 	   </v-btn>
+							      </template>
+							      <span>Kopiraj</span>
+							    </v-tooltip>
+								
+								<v-tooltip bottom>
+							      <template v-slot:activator="{ on }">
+								  	<v-btn icon v-on:click="resetall" v-on="on">
+      									<v-icon color="primary">delete_outline</v-icon>
+							 	   </v-btn>
+							      </template>
+							      <span>Obriši</span>
+							    </v-tooltip>
+								
+								<template v-slot:extension>
+									<v-text-field 
+										v-model="number"
+										label="10 znamenaka za OIB" outline
+										counter
+										required
+										autofocus
+		            						maxlength="10">
+									</v-text-field>
+								</template>
+							</v-toolbar>
+								
+							<v-list dark>
+					          <v-list-tile v-for="item in numbers">
+					             <v-list-tile-content>
+					              <v-list-tile-title v-text="item"></v-list-tile-title>
+					            </v-list-tile-content>
+					          </v-list-tile>
+					        </v-list>
+							
+						</v-flex>
+					</v-layout>
+				</v-container>
+			</v-form>
+		</v-content>
+	</v-app>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+<script>
+new Vue({
+  	el: '#app',
+  	data: {
+		numbers: [],
+		number: '' },
+	methods: {
+		calculate: function (event) {
+			
+			  this.$http.post('https://565f9e09.eu-de.apiconnect.appdomain.cloud/tvrtkoAPI/oib', {number: this.number}).then(response => {
+			    this.numbers.unshift(response.body.OIB);
+			  }, response => {
+			    // error callback
+			  });
+			  
+			
+			this.number = "";
+	     
+	    },
+		resetall: function () {
+			this.numbers =  [];
+			this.number = '';
+		},
+		copytoclipboard: function() {
+			// Create new element
+		   	var el = document.createElement('textarea');
+			// Set value (string to be copied)
+		   el.value = this.numbers;
+		   // Set non-editable to avoid focus and move outside of view
+		   el.setAttribute('readonly', '');
+		   el.style = {position: 'absolute', left: '-9999px'};
+		   document.body.appendChild(el);
+		   // Select text inside element
+		   el.select();
+		   // Copy text to clipboard
+		   document.execCommand('copy');
+		   // Remove temporary element
+		   document.body.removeChild(el);
+		}
+	}
+})
+</script>
+
+</body>
+</html>
