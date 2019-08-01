@@ -12,11 +12,19 @@
 	<v-app>
  		<v-content>
 			<v-container fluid fill-height>
-        			<v-layout align-center justify-center>
+        			<v-layout align-top justify-center>
           			<v-flex xs12 sm8 md4>
 						<v-toolbar min-height="120px">
-							<v-toolbar-title>Generator važećih OIB-a</v-toolbar-title>
+							<v-toolbar-title>Generator OIB-a</v-toolbar-title>
 							<v-spacer></v-spacer>
+							<v-tooltip bottom>
+						      <template v-slot:activator="{ on }">
+							  	<v-btn icon v-on:click="generaterandom" v-on="on">
+									<v-icon color="primary">playlist_add</v-icon>
+						 	   </v-btn>
+						      </template>
+						      <span>Random</span>
+						    </v-tooltip>
 							<v-tooltip bottom>
 						      <template v-slot:activator="{ on }">
 							  	<v-btn icon v-on:click="copytoclipboard" v-on="on">
@@ -117,6 +125,14 @@ new Vue({
 		   document.execCommand('copy');
 		   // Remove temporary element
 		   document.body.removeChild(el);
+		},
+		generaterandom: function(){
+			this.number=''+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)
+			+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)
+			+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)
+			+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)
+			+Math.floor(Math.random()*10)+Math.floor(Math.random()*10);
+			this.calculate();
 		}
 	}
 })
