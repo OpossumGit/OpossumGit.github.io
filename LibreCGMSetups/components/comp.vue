@@ -26,17 +26,17 @@ Vue.component('comp', {
         return {text: 'Službena aplikacija proizvođača MiaoMiao.', 
                 advs : ['Jednostavno korištenje','Jednostavna instalacija'], 
                 disadvs : ['Aplikacija zaostaje kvalitetom','Manje pouzdana'], 
-                img : 'img/tomato.WebP'};
+                img : 'img/tomato.png'};
     else if (this.kind == 'LinkBluCon')
         return {text: 'Službena aplikacija proizvođača Blucon Nightrider, za primanje podataka sa njega.', 
                 advs : ['Jednostavno korištenje','Jednostavna instalacija'], 
                 disadvs : ['Aplikacija zaostaje kvalitetom','Manje pouzdana'], 
-                img : 'img/LinkBluCon.Webp'};
+                img : 'img/LinkBluCon.png'};
     else if (this.kind == 'FollowBluCon')
         return {text: 'Službena aplikacija proizvođača Blucon Nightrider, za praćenje podataka sakupljenih LinkBluCon aplikacijom.', 
                 advs : ['Jednostavno korištenje','Moguće praćenje više korisnika'], 
                 disadvs : ['Aplikacija zaostaje kvalitetom'], 
-                img : 'img/FollowBluCon.WebP'};
+                img : 'img/FollowBluCon.png'};
     else if (this.kind == 'Direktno')
         return {text: 'Komunikacija se zbiva internetom, ali se podaci tamo ne spremaju.', 
                 advs : ['Jedna kompnenta manje','Brz prijenos podataka'], 
