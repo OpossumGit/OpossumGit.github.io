@@ -15,8 +15,7 @@ Vue.component('listofsetups', {
     },
     usecloud: function(val) {
       this.tab = 0;
-    },
-    tab: function(val){ console.log(val)}
+    }
   },
   computed: {
     setups: function() { 
