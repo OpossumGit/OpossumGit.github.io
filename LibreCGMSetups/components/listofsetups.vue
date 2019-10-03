@@ -21,155 +21,155 @@ Vue.component('listofsetups', {
     setups: function() { 
       if (this.device==0 && this.master==0 && this.follower==1 && this.usecloud==0){
         return [
-           {id: '1-1', left: 'Xdrip+', center: 'Nightscout', right: '-'},
-           {id: '1-2', left: 'Glimp', center: 'Nightscout', right: '-'},
-           {id: '1-3', left: 'Tomato', center: 'Serveri proizvođača', right: '-'},
+           {id: '1-1', left: 'xdrip', center: 'nightscout', right: 'none'},
+           {id: '1-2', left: 'glimp', center: 'nightscout', right: 'none'},
+           {id: '1-3', left: 'tomato', center: 'cloud', right: 'none'},
         ]
     }
     else if (this.device==0 && this.master==0 && this.follower==1 && this.usecloud==1) {
         return [
-           {id: '2-1', left: 'Xdrip+', center: '-', right: '-'},
-           {id: '2-2', left: 'Glimp', center: '-', right: '-'}
+           {id: '2-1', left: 'xdrip', center: 'none', right: 'none'},
+           {id: '2-2', left: 'glimp', center: 'none', right: 'none'}
         ]
       }
     else if (this.device==0 && this.master==0 && this.follower==0 && this.usecloud==0) {
         return [
-           {id: '3-1', left: 'Xdrip+', center: 'Nightscout', right: 'Xdrip+'},
-           {id: '3-2', left: 'Glimp', center: 'Nightscout', right: 'Xdrip+'},
-           {id: '3-3', left: 'Glimp', center: 'DropBox', right: 'Glimp'},
-           {id: '3-4', left: 'Tomato', center: 'Nightscout', right: 'Xdrip+'},
-           {id: '3-5', left: 'Xdrip+', center: 'Direktno', right: 'Xdrip+'}
+           {id: '3-1', left: 'xdrip', center: 'nightscout', right: 'xdrip'},
+           {id: '3-2', left: 'glimp', center: 'nightscout', right: 'xdrip'},
+           {id: '3-3', left: 'glimp', center: 'dropbox', right: 'glimp'},
+           {id: '3-4', left: 'tomato', center: 'nightscout', right: 'xdrip'},
+           {id: '3-5', left: 'xdrip', center: 'direct', right: 'xdrip'}
         ]
       }
     else if (this.device==0 && this.master==0 && this.follower==0 && this.usecloud==1) {
         return [
-           {id: '4-1', left: 'Xdrip+', center: 'Direktno', right: 'Xdrip+'}
+           {id: '4-1', left: 'xdrip', center: 'direct', right: 'xdrip'}
         ]
       }
     else if (this.device==0 && this.master==0 && this.follower==2 && this.usecloud==0) {
         return [
-           {id: '5-1', left: 'Xdrip+', center: 'Nightscout', right: 'NightGuard'},
-           {id: '5-2', left: 'Glimp', center: 'Nightscout', right: 'NightGuard'},
-           {id: '5-3', left: 'Xdrip+', center: 'Nightscout', right: 'Spike'},
-           {id: '5-4', left: 'Glimp', center: 'Nightscout', right: 'Spike'},
-           {id: '5-5', left: 'Tomato', center: 'Nightscout', right: 'NightGuard'},
-           {id: '5-6', left: 'Tomato', center: 'Nightscout', right: 'Spike'}
+           {id: '5-1', left: 'xdrip', center: 'nightscout', right: 'nightguard'},
+           {id: '5-2', left: 'glimp', center: 'nightscout', right: 'nightguard'},
+           {id: '5-3', left: 'xdrip', center: 'nightscout', right: 'spike'},
+           {id: '5-4', left: 'glimp', center: 'nightscout', right: 'spike'},
+           {id: '5-5', left: 'tomato', center: 'nightscout', right: 'nightguard'},
+           {id: '5-6', left: 'tomato', center: 'nightscout', right: 'spike'}
         ]
       }
     else if (this.device==0 && this.master==0 && this.follower==2 && this.usecloud==1) {
         return [
-           {id: '6-1', left: 'Nemoguće', center: 'Nemoguće', right: 'Nemoguće'}
+           {id: '6-1', left: 'impossible', center: 'impossible', right: 'impossible'}
         ]
       }
     else if (this.device==0 && this.master==1 && this.follower==1 && this.usecloud==0){
         return [
-           {id: '7-1', left: 'Spike', center: 'Nightscout', right: '-'},
-           {id: '7-2', left: 'Tomato', center: 'Serveri proizvođača', right: '-'},
-           {id: '7-3', left: 'Tomato', center: 'Nightscout', right: '-'}
+           {id: '7-1', left: 'spike', center: 'nightscout', right: 'none'},
+           {id: '7-2', left: 'tomato', center: 'cloud', right: 'none'},
+           {id: '7-3', left: 'tomato', center: 'nightscout', right: 'none'}
         ]
     }
     else if (this.device==0 && this.master==1 && this.follower==1 && this.usecloud==1) {
         return [
-           {id: '8-1', left: 'Spike', center: '-', right: '-'}
+           {id: '8-1', left: 'spike', center: 'none', right: 'none'}
         ]
       }
     else if (this.device==0 && this.master==1 && this.follower==0 && this.usecloud==0) {
         return [
-           {id: '9-1', left: 'Spike', center: 'Nightscout', right: 'Xdrip+'},
-           {id: '9-2', left: 'Tomato', center: 'Nightscout', right: 'Xdrip+'}
+           {id: '9-1', left: 'spike', center: 'nightscout', right: 'xdrip'},
+           {id: '9-2', left: 'tomato', center: 'nightscout', right: 'xdrip'}
         ]
       }
     else if (this.device==0 && this.master==1 && this.follower==0 && this.usecloud==1) {
         return [
-           {id: '10-1', left: 'Nemoguće', center: 'Nemoguće', right: 'Nemoguće'}
+           {id: '10-1', left: 'impossible', center: 'impossible', right: 'impossible'}
         ]
       }
     else if (this.device==0 && this.master==1 && this.follower==2 && this.usecloud==0) {
         return [
-           {id: '11-1', left: 'Spike', center: 'Nightscout', right: 'Spike'},
-           {id: '11-2', left: 'Spike', center: 'Nightscout', right: 'NightGuard'},
-           {id: '11-3', left: 'Tomato', center: 'Nightscout', right: 'NightGuard'},
-           {id: '11-4', left: 'Tomato', center: 'Nightscout', right: 'Spike'}
+           {id: '11-1', left: 'spike', center: 'nightscout', right: 'spike'},
+           {id: '11-2', left: 'spike', center: 'nightscout', right: 'nightguard'},
+           {id: '11-3', left: 'tomato', center: 'nightscout', right: 'nightguard'},
+           {id: '11-4', left: 'tomato', center: 'nightscout', right: 'spike'}
         ]
       }
     else if (this.device==0 && this.master==1 && this.follower==2 && this.usecloud==1) {
         return [
-           {id: '12-1', left: 'Nemoguće', center: 'Nemoguće', right: 'Nemoguće'}
+           {id: '12-1', left: 'impossible', center: 'impossible', right: 'impossible'}
         ]
       }
     else if (this.device==1 && this.master==0 && this.follower==1 && this.usecloud==0){
         return [
-           {id: '13-1', left: 'Xdrip+', center: 'Nightscout', right: '-'},
-           {id: '13-2', left: 'Glimp', center: 'Nightscout', right: '-'},
-           {id: '13-3', left: 'LinkBluCon', center: 'Serveri proizvođača', right: '-'},
+           {id: '13-1', left: 'xdrip', center: 'nightscout', right: 'none'},
+           {id: '13-2', left: 'glimp', center: 'nightscout', right: 'none'},
+           {id: '13-3', left: 'linkblucon', center: 'cloud', right: 'none'},
         ]
     }
     else if (this.device==1 && this.master==0 && this.follower==1 && this.usecloud==1) {
         return [
-           {id: '14-1', left: 'Xdrip+', center: '-', right: '-'},
-           {id: '14-2', left: 'Glimp', center: '-', right: '-'}
+           {id: '14-1', left: 'xdrip', center: 'none', right: 'none'},
+           {id: '14-2', left: 'glimp', center: 'none', right: 'none'}
         ]
       }
     else if (this.device==1 && this.master==0 && this.follower==0 && this.usecloud==0) {
         return [
-           {id: '15-1', left: 'Xdrip+', center: 'Nightscout', right: 'Xdrip+'},
-           {id: '15-2', left: 'Glimp', center: 'Nightscout', right: 'Xdrip+'},
-           {id: '15-3', left: 'Glimp', center: 'DropBox', right: 'Glimp'},
-           {id: '15-4', left: 'LinkBluCon', center: 'Serveri proizvođača', right: 'FollowBluCon'},
-           {id: '15-5', left: 'Xdrip+', center: 'Direktno', right: 'Xdrip+'}
+           {id: '15-1', left: 'xdrip', center: 'nightscout', right: 'xdrip'},
+           {id: '15-2', left: 'glimp', center: 'nightscout', right: 'xdrip'},
+           {id: '15-3', left: 'glimp', center: 'dropbox', right: 'glimp'},
+           {id: '15-4', left: 'linkblucon', center: 'cloud', right: 'followblucon'},
+           {id: '15-5', left: 'xdrip', center: 'direct', right: 'xdrip'}
         ]
       }
     else if (this.device==1 && this.master==0 && this.follower==0 && this.usecloud==1) {
         return [
-           {id: '16-1', left: 'Xdrip+', center: 'Direktno', right: 'Xdrip+'}
+           {id: '16-1', left: 'xdrip', center: 'direct', right: 'xdrip'}
         ]
       }
     else if (this.device==1 && this.master==0 && this.follower==2 && this.usecloud==0) {
         return [
-           {id: '17-1', left: 'Xdrip+', center: 'Nightscout', right: 'NightGuard'},
-           {id: '17-2', left: 'Glimp', center: 'Nightscout', right: 'NightGuard'},
-           {id: '17-3', left: 'Xdrip+', center: 'Nightscout', right: 'Spike'},
-           {id: '17-4', left: 'Glimp', center: 'Nightscout', right: 'Spike'},
-           {id: '17-5', left: 'LinkBluCon', center: 'Serveri proizvođača', right: 'FollowBluCon'}
+           {id: '17-1', left: 'xdrip', center: 'nightscout', right: 'nightguard'},
+           {id: '17-2', left: 'glimp', center: 'nightscout', right: 'nightguard'},
+           {id: '17-3', left: 'xdrip', center: 'nightscout', right: 'spike'},
+           {id: '17-4', left: 'glimp', center: 'nightscout', right: 'spike'},
+           {id: '17-5', left: 'linkblucon', center: 'cloud', right: 'followblucon'}
         ]
       }
     else if (this.device==1 && this.master==0 && this.follower==2 && this.usecloud==1) {
         return [
-           {id: '18-1', left: 'Nemoguće', center: 'Nemoguće', right: 'Nemoguće'}
+           {id: '18-1', left: 'impossible', center: 'impossible', right: 'impossible'}
         ]
       }
     else if (this.device==1 && this.master==1 && this.follower==1 && this.usecloud==0){
         return [
-           {id: '19-1', left: 'Spike', center: 'Nightscout', right: '-'},
-           {id: '19-2', left: 'LinkBluCon', center: 'Serveri proizvođača', right: '-'}
+           {id: '19-1', left: 'spike', center: 'nightscout', right: 'none'},
+           {id: '19-2', left: 'linkblucon', center: 'cloud', right: 'none'}
         ]
     }
     else if (this.device==1 && this.master==1 && this.follower==1 && this.usecloud==1) {
         return [
-           {id: '20-1', left: 'Spike', center: '-', right: '-'}
+           {id: '20-1', left: 'spike', center: 'none', right: 'none'}
         ]
       }
     else if (this.device==1 && this.master==1 && this.follower==0 && this.usecloud==0) {
         return [
-           {id: '21-1', left: 'Spike', center: 'Nightscout', right: 'Xdrip+'},
-           {id: '21-2', left: 'LinkBluCon', center: 'Serveri proizvođača', right: 'FollowBluCon'}
+           {id: '21-1', left: 'spike', center: 'nightscout', right: 'xdrip'},
+           {id: '21-2', left: 'linkblucon', center: 'cloud', right: 'followblucon'}
         ]
       }
     else if (this.device==1 && this.master==1 && this.follower==0 && this.usecloud==1) {
         return [
-           {id: '22-1', left: 'Nemoguće', center: 'Nemoguće', right: 'Nemoguće'}
+           {id: '22-1', left: 'impossible', center: 'impossible', right: 'impossible'}
         ]
       }
     else if (this.device==1 && this.master==1 && this.follower==2 && this.usecloud==0) {
         return [
-           {id: '23-1', left: 'Spike', center: 'Nightscout', right: 'Spike'},
-           {id: '23-2', left: 'Spike', center: 'Nightscout', right: 'NightGuard'},
-           {id: '23-3', left: 'LinkBluCon', center: 'Serveri proizvođača', right: 'FollowBluCon'}
+           {id: '23-1', left: 'spike', center: 'nightscout', right: 'spike'},
+           {id: '23-2', left: 'spike', center: 'nightscout', right: 'nightguard'},
+           {id: '23-3', left: 'linkblucon', center: 'cloud', right: 'followblucon'}
         ]
       }
     else if (this.device==1 && this.master==1 && this.follower==2 && this.usecloud==1) {
         return [
-           {id: '24-1', left: 'Nemoguće', center: 'Nemoguće', right: 'Nemoguće'}
+           {id: '24-1', left: 'impossible', center: 'impossible', right: 'impossible'}
         ]
       }
  
@@ -189,7 +189,7 @@ Vue.component('listofsetups', {
         :key="setup.id"
              
       >
-       Konfiguracija {{ index +1}} 
+       {{ $t("global.configuration") }} {{ index +1}} 
       </v-tab>
     </v-tabs>
     
@@ -202,15 +202,15 @@ Vue.component('listofsetups', {
      <v-container class="pa-2" fluid>
       <v-row>
         <v-col cols="12"  sm="4">
-            <p class="subtitle-2">Aplikacija za prikupljanje podataka: {{ setup.left}}</p>
+            <p class="subtitle-2">{{ $t("global.collection_application") }}: {{ $t("global."+ setup.left) }}</p>
           <comp :kind="setup.left"></comp>
         </v-col>
           <v-col cols="12" sm="4">
-              <p class="subtitle-2">Podaci se prenose preko: {{ setup.center}} </p>
+              <p class="subtitle-2">{{ $t("global.transfer_application") }}: {{ $t("global."+ setup.center)}} </p>
           <comp :kind="setup.center"></comp>
         </v-col>
           <v-col cols="12" sm="4">
-              <p class="subtitle-2">Aplikacija za udaljeno čitanje podataka: {{setup.right}}</p>
+              <p class="subtitle-2">{{ $t("global.receiver_application") }}: {{$t("global."+ setup.right)}}</p>
           <comp :kind="setup.right"></comp>
         </v-col>
       </v-row>

@@ -2,8 +2,8 @@ Vue.component('parameters', {
    data: () => ({
   	devices: ['MiaoMiao','BluCon'],
     masters: ['Android','iPhone'],
-    followers: ['Android','Ne treba','iPhone'],
-    useClouds: ['Da','Ne'],
+    followers: ['Android','∅','iPhone'],
+    useClouds: ['✓','×'],
     device: 0, 
     master: 0,
     follower: 0,
@@ -15,7 +15,7 @@ Vue.component('parameters', {
         <v-col cols="12"  sm="6" lg="3">
         
         <v-card dark>
-        <v-subheader>Koristiti ću uređaj</v-subheader>
+        <v-subheader>{{ $t("global.device") }}</v-subheader>
         <v-card-text>
             <v-slider
             :tick-labels="devices"
@@ -35,7 +35,7 @@ Vue.component('parameters', {
          </v-col>
              <v-col cols="12"  sm="6" lg="3">
         <v-card dark>
-        <v-subheader>Telefon koji će primati podatke (MASTER)</v-subheader>
+        <v-subheader>{{ $t("global.master") }}</v-subheader>
         <v-card-text>
             <v-slider
             :tick-labels="masters"
@@ -55,7 +55,7 @@ Vue.component('parameters', {
          </v-col>
             <v-col cols="12"  sm="6" lg="3">
             <v-card dark>
-        <v-subheader>Telefon koji će udaljeno čitati podatke (FOLLOWER)</v-subheader>
+        <v-subheader>{{ $t("global.follower") }}</v-subheader>
         <v-card-text>
             <v-slider
             :tick-labels="followers"
@@ -75,7 +75,7 @@ Vue.component('parameters', {
         </v-col>
              <v-col cols="12"  sm="6" lg="3">
                 <v-card dark>
-        <v-subheader>Podaci smiju na internet</v-subheader>
+        <v-subheader>{{ $t("global.usecloud") }}</v-subheader>
         <v-card-text>
             <v-slider
             :tick-labels="useClouds"

@@ -3,7 +3,8 @@
 <head>
 	<title>Libre CGM Setups</title>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
- 	<link href="https://cdn.jsdelivr.net/npm/vuetify@2.0.3/dist/vuetify.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.0.3/dist/vuetify.min.css" rel="stylesheet">
+
  	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" charset="utf-8" />
 </head>
 <body>
@@ -12,15 +13,23 @@
     <v-app>
         <v-content>
             <v-container fluid>
-                <h1>Libre CGM konfiguracije</h1>
-                <p>Koristili biste MiaoMiao ili BluCon da dobivate podatke o glikemiji uživo na svom ili udaljenom uređaju, a ne znate što trebate? Među opcijama niže odaberite koji scenarij je vaš i pogledajte koje konfiguracije možete sastaviti.</p>
+                <v-row>
+                    <v-col cols="12" sm="10">
+                        <h1>{{ $t("global.title") }}</h1>
+
+                        <p>{{ $t("global.description") }}</p>
+                    </v-col>
+                    <v-col cols="12" sm="2">
+                        <langselector />
+                    </v-col>
+                </v-row>
                 <parameters
                         class="d-flex-column"
                         v-on:emit-device="device = $event"
                         v-on:emit-master="master = $event"
                         v-on:emit-follower="follower = $event"
                         v-on:emit-usecloud="usecloud = $event"
-                        ></parameters>
+                         />
             </v-container>
             <v-container fluid>
                 <listofsetups :device="device" :master="master" :follower="follower" :usecloud="usecloud"></listofsetups>
@@ -31,13 +40,15 @@
 </div>
 
 
+<script src="./translations.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="https://cdn.jsdelivr.net/npm/vuetify@2.0.3/dist/vuetify.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
-    
+<script src="https://unpkg.com/vue-i18n/dist/vue-i18n.js"></script>
 <script src="components/parameters.vue"></script>
 <script src="components/listofsetups.vue"></script>
 <script src="components/comp.vue"></script>
+<script src="components/langselector.vue"></script>
 <script src="main.js"></script>
 
 
