@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yayoboi - Egg Battle Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🥚 Yayoboi - Egg Battle Game 🥚</h1>
+        
+        <div class="controls">
+            <button id="configureBtn" class="btn btn-primary">Configure Players</button>
+            <button id="nextMatchBtn" class="btn btn-success" style="display: none;">Next Match</button>
+        </div>
+
+        <div id="gameStatus" class="game-status"></div>
+        
+        <div id="roundVisualization" class="round-visualization"></div>
+
+        <div id="matchLog" class="match-log">
+            <h3>Match Log</h3>
+            <div id="logEntries"></div>
+        </div>
+    </div>
+
+    <!-- Configuration Modal -->
+    <div id="configModal" class="modal">
+        <div class="modal-content">
+            <h2>Configure Players</h2>
+            <p>Enter player names (one per line):</p>
+            <textarea id="playerNamesInput" placeholder="Player 1&#10;Player 2&#10;Player 3&#10;Player 4&#10;Player 5" rows="10"></textarea>
+            <div class="modal-buttons">
+                <button id="confirmConfigBtn" class="btn btn-primary">Confirm</button>
+                <button id="cancelConfigBtn" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Match Modal -->
+    <div id="matchModal" class="modal">
+        <div class="modal-content">
+            <h2>⚔️ Egg Battle ⚔️</h2>
+            <div id="matchDetails" class="match-details"></div>
+            <p class="match-instruction">Click on the winner's name:</p>
+            <div id="matchPlayers" class="match-players"></div>
+        </div>
+    </div>
+
+    <!-- Winner Modal -->
+    <div id="winnerModal" class="modal">
+        <div class="modal-content winner-content">
+            <h1>🎉 WINNER! 🎉</h1>
+            <div id="winnerName" class="winner-name"></div>
+            <p class="winner-message">Congratulations! Your egg survived!</p>
+            <button id="closeWinnerBtn" class="btn btn-primary">Start New Game</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
